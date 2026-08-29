@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEE Edge | Your rank, in motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <main id="auth-view" class="auth-shell">
+    <section class="auth-intro"><div class="brand-mark">J<span>E</span></div><p class="eyebrow">JEE ADVANCED / 2025–26</p><h1>Make your<br><em>rank move.</em></h1><p class="intro-copy">A calm, honest study companion for the long game. Track the hours that compound and watch your All India Rank respond.</p><div class="intro-stat"><strong>15,00,000</strong><span>starting rank for every student</span></div></section>
+    <section class="auth-card"><div class="auth-tabs"><button class="tab active" data-mode="login">Sign in</button><button class="tab" data-mode="signup">Create account</button></div>
+      <form id="auth-form"><div class="form-heading"><p class="eyebrow" id="form-kicker">WELCOME BACK</p><h2 id="form-title">Your edge is waiting.</h2></div>
+        <label class="signup-only">Your name<input id="name" type="text" placeholder="e.g. Aarav Sharma"></label>
+        <label>Email address<input id="email" type="email" placeholder="you@example.com" required></label>
+        <label>Password<input id="password" type="password" placeholder="At least 6 characters" required minlength="6"></label>
+        <label class="signup-only">Chapters completed <span class="field-hint">out of 75</span><input id="chapters" type="number" min="0" max="75" value="0"></label>
+        <p class="signup-only setup-note"><i data-lucide="sparkles"></i> We use this to set your starting point. You can update it anytime.</p>
+        <button class="primary full" type="submit"><span id="submit-label">Enter dashboard</span><i data-lucide="arrow-up-right"></i></button><p id="auth-error" class="error"></p>
+      </form><p class="privacy-note"><i data-lucide="lock-keyhole"></i> Your progress is private and encrypted.</p>
+    </section>
+  </main>
+  <main id="app-view" class="app-shell hidden">
+    <aside class="sidebar"><div class="brand-mark">J<span>E</span></div><div class="sidebar-label">STUDY OS</div><nav><button class="nav-item active"><i data-lucide="layout-dashboard"></i><span>Overview</span></button><button class="nav-item" id="search-nav"><i data-lucide="users"></i><span>Find a student</span></button></nav><div class="sidebar-bottom"><div class="quote">“Small daily improvements are the key to staggering long-term results.”<small>— JEE Edge</small></div><button id="logout" class="logout"><i data-lucide="log-out"></i> Log out</button></div></aside>
+    <section class="content"><header class="topbar"><div><p class="eyebrow">SATURDAY, 29 AUGUST 2026</p><h1>Good morning, <span id="user-name">Student</span>.</h1></div><button class="avatar" id="profile-avatar">S</button></header>
+      <div class="hero-row"><div><p class="eyebrow accent">YOUR CURRENT POSITION</p><div class="rank-value">AIR <strong id="rank-value">15,00,000</strong></div><p class="rank-caption"><span id="rank-change">Your journey starts here.</span> <span class="muted">Keep showing up.</span></p></div></div>
+      <div class="section-head"><div><p class="eyebrow">TODAY'S FOCUS</p><h2>Put in the hours.</h2></div><p class="section-note">Time is saved automatically across devices.</p></div>
+      <div class="timer-grid"><article class="timer-card lecture"><div class="card-top"><span class="timer-icon"><i data-lucide="book-open"></i></span><span class="timer-label">LECTURE</span><button class="more" aria-label="Lecture info"><i data-lucide="ellipsis"></i></button></div><div class="timer-time" id="lecture-time">00:00:00</div><div class="timer-bottom"><span>Build your base</span><button class="timer-action" data-timer="lecture"><i data-lucide="play"></i><span>Start</span></button></div></article><article class="timer-card practice"><div class="card-top"><span class="timer-icon"><i data-lucide="target"></i></span><span class="timer-label">QUESTION PRACTICE</span><button class="more"><i data-lucide="ellipsis"></i></button></div><div class="timer-time" id="practice-time">00:00:00</div><div class="timer-bottom"><span>Turn knowledge sharp</span><button class="timer-action" data-timer="practice"><i data-lucide="play"></i><span>Start</span></button></div></article><article class="timer-card revision"><div class="card-top"><span class="timer-icon"><i data-lucide="refresh-cw"></i></span><span class="timer-label">REVISION</span><button class="more"><i data-lucide="ellipsis"></i></button></div><div class="timer-time" id="revision-time">00:00:00</div><div class="timer-bottom"><span>Make it stick</span><button class="timer-action" data-timer="revision"><i data-lucide="play"></i><span>Start</span></button></div></article></div>
+      <div class="lower-grid"><section class="panel todo-panel"><div class="panel-head"><div><p class="eyebrow">DAILY CHECKLIST</p><h2>Keep promises.</h2></div><span class="todo-count" id="todo-count">0 / 0</span></div><form id="todo-form" class="todo-form"><input id="todo-input" placeholder="Add a task for today..." required><button aria-label="Add task"><i data-lucide="plus"></i></button></form><div id="todo-list" class="todo-list"></div></section></div>
+    </section>
+  </main>
+  <div id="student-drawer" class="drawer hidden"><div class="drawer-inner"><button class="drawer-close" id="close-drawer"><i data-lucide="x"></i></button><p class="eyebrow">STUDENT LOOKUP</p><h2>Compare the climb.</h2><p class="drawer-copy">Search by name to view a student's public progress. Their data stays read-only.</p><input id="student-search" class="search-input" placeholder="Search a student..." autocomplete="off"><div id="search-results"></div><div id="student-detail" class="student-detail hidden"></div></div></div>
+  <script src="/rankLogic.js"></script>
+  <script src="/timerLogic.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
